@@ -89,6 +89,8 @@ def checkInputs():
         else:
             print(Enemy.name + " is now at " + str(Enemy.hp) + "hp")
             time.sleep(1)
+            print(Enemy.name + " viciously attacks you, dealing " + str(Enemy.dmg) + " damage!")
+            hp = hp - Enemy.dmg # broken :(
             checkInputs()
     elif userInput == "attack" or userInput == "atk" or userInput == "hit" or userInput == "stab" and inBattle == False:
         print("You are not in a battle right now. \n\n")
