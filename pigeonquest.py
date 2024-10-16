@@ -75,16 +75,19 @@ def checkInputs():
 
     print("\n-------------------------------------\nCOMMAND LIST\n-------------------------------------\n" + commands + "\n-------------------------------------")
     userInput = input('\n').lower()
+    # checks for inventory input and displays
     if userInput == "inv" or userInput.lower() == "inventory":
         pywriter.write("\nInventory\n------------------------------------------\nSLOT 1: " + slot1 + "\n------------------------------------------", rate=0.01)
         time.sleep(1)
         checkInputs()
+    # checks for stats input and displays
     elif userInput == "stats":
         pywriter.write("HP: " + str(hp) + "/100", rate=0.01)
         pywriter.write("LVL: " + str(level), rate=0.01)
         pywriter.write("XP: " + str(xp) + "/100", rate=0.01)
         time.sleep(1)
         checkInputs()
+    # checks for use of health potion
     elif (userInput == "use") and hasHealthPot == True:
         hp = hp + 50
         time.sleep(1)
@@ -95,6 +98,7 @@ def checkInputs():
             exit()
         else:
             checkInputs()
+    # attack 1 (12 dmg)
     elif (userInput == "peck") and inBattle == True:
 
         pywriter.write("\nYou hit " + Enemy.name + " for " + str(dmg) + " damage!\n", rate=0.01)
@@ -114,6 +118,7 @@ def checkInputs():
                 exit()
             else:
                 checkInputs()
+    # attack 2 (35 dmg)
     elif userInput == "slash" and inBattle == True and hasAtk2 == True:
         atk2Left = atk2Left - 1
         pywriter.write("\nYou hit " + Enemy.name + " for " + str(dmg2) + " damage!\n", rate=0.01)
@@ -133,6 +138,7 @@ def checkInputs():
                 exit()
             else:
                 checkInputs()
+    # next 3 for if you dont have a certain item
     elif userInput == "use" and hasHealthPot == False:
         pywriter.write("There is no item in your inventory.\n\n", rate=0.01)
         checkInputs()
