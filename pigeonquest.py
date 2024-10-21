@@ -90,8 +90,10 @@ def checkInputs():
     # checks for use of health potion
     elif (userInput == "use") and hasHealthPot == True:
         hp = hp + 50
+        print("Used Health Potion. +50 HP!")
+        hasHealthPot = False
         time.sleep(1)
-        pywriter.write("\n" + Enemy.name + " viciously attacks you, dealing " + str(Enemy.dmg) + " damage!", rate=0.01) # make damage message sorta random
+        pywriter.write("\n" + Enemy.name + " viciously attacks you, dealing " + str(Enemy.dmg) + " damage!", rate=0.01)
         hp = hp - Enemy.dmg 
         if hp <= 0:
             pywriter.write("\nYOU DIED :(", rate=0.08)
@@ -152,7 +154,7 @@ def checkInputs():
 
 
 
-pywriter.write("WARNING: DO NOT PRESS ANYTHING WHILE TEXT IS BEING TYPED AS IT MAY MESS UP AREAS REQUIRING INPUT", rate=0.01)
+pywriter.write("WARNING: DO NOT PRESS ANYTHING WHILE TEXT IS BEING TYPED AS IT MAY MESS UP AREAS REQUIRING INPUT.\nALSO REFRAIN FROM CLICKING ANYWHERE ON THE TERMINAL", rate=0.01)
 
 pressEnter()
 
