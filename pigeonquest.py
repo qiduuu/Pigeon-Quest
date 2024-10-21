@@ -77,6 +77,10 @@ def checkInputs():
     userInput = input('\n').lower()
     # checks for inventory input and displays
     if userInput == "inv" or userInput.lower() == "inventory":
+        if hasHealthPot == True:
+            slot1 = "Health Potion"
+        else:
+            slot1 = ""
         pywriter.write("\nInventory\n------------------------------------------\nSLOT 1: " + slot1 + "\n------------------------------------------", rate=0.01)
         time.sleep(1)
         checkInputs()
@@ -237,7 +241,6 @@ pywriter.write("He hands you a bottle of a strange red liquid.", rate=0.02)
 time.sleep(2)
 pywriter.write("HEALTH POTION OBTAINED! Use for +50 HP", rate=0.02)
 
-slot1 = "Health Potion"
 hasHealthPot = True
 
 pressEnter()
