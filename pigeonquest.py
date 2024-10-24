@@ -5,6 +5,7 @@ import pywriter
 #time is important for waiting/sleep commands
 import time
 
+
 #list of commands
 commands = "OPEN INVENTORY: inv, inventory\nVIEW STATS: stats\nATTACK: peck\nUSE ITEM: use"
 
@@ -89,6 +90,7 @@ def checkInputs():
         pywriter.write("HP: " + str(hp) + "/100", rate=0.01)
         pywriter.write("LVL: " + str(level), rate=0.01)
         pywriter.write("XP: " + str(xp) + "/100", rate=0.01)
+
         time.sleep(1)
         checkInputs()
     # checks for use of health potion
@@ -162,7 +164,12 @@ pywriter.write("WARNING: DO NOT PRESS ANYTHING WHILE TEXT IS BEING TYPED AS IT M
 
 pressEnter()
 
-pywriter.write("You are the last pigeon left.\nYour quest is to defeat the Duck Lord.\n\nYour journey begins now.", rate=0.01)
+with open("pigeon.txt") as f:
+     pywriter.write(f.read(),rate=0.002)
+
+time.sleep(2.5)
+
+pywriter.write("\nYou are the last pigeon left.\nYour quest is to defeat the Duck Lord.\n\nYour journey begins now.", rate=0.01)
 
 time.sleep(2.5)
 username = input("\nName your pigeon adventurer: ")
